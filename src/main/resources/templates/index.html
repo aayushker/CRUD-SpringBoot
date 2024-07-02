@@ -10,10 +10,13 @@
 
 <body>
 <div class="container" align="center">
-    <h2>Student List As Follows</h2>
+    <h2>Users List is As Follows</h2>
     <hr>
-    <a th:href="@{/addNew}" class="btn btn-primary btn-sm mb-3">
+    <a th:href="@{/addUser}" class="btn btn-primary btn-sm mb-3">
         Add Student
+    </a>
+    <a th:href="@{/logout}" class="btn btn-danger btn-sm mb-3">
+        Logout
     </a>
 
     <br><br>
@@ -22,29 +25,27 @@
         <th>ID</th>
         <th>NAME</th>
         <th>CONTACT</th>
+        <th>EMAIL</th>
+        <th>ADDRESS</th>
         <th>ACTION</th>
         </thead>
-        <tr th:each="student:${list_of_students}">
-            <td th:text="${student.id}"></td>
-            <td th:text="${student.name}"></td>
-            <td th:text="${student.contact}"></td>
+        <tr th:each="user:${list_of_users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.phone}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.address}"></td>
             <td>
-                <a th:href="@{/updateStudent/{id}(id=${student.id})}" class="btn btn-primary btn-sm mb-3">
+                <a th:href="@{/updateUser/{id}(id=${user.id})}" class="btn btn-primary btn-sm mb-3">
                     Update
                 </a>
-                <a th:href="@{/deleteStudent/{id}(id=${student.id})}" class="btn btn-danger btn-sm mb-3" method="delete">
+                <a th:href="@{/deleteUser/{id}(id=${user.id})}" class="btn btn-danger btn-sm mb-3" method="delete">
                     Delete
                 </a>
             </td>
         </tr>
     </table>
 
-
-
 </div>
-
-
-
 </body>
-
 </html>

@@ -28,13 +28,13 @@ public class UserController {
         return "user";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/addUser")
     public String addUser(Model model) {
         model.addAttribute("user", new User());
         return "addUser";
     }
 
-    @GetMapping("/update/{id}")
+    @GetMapping("/updateUser/{id}")
     public String updateUser(@PathVariable int id, Model model){
         User user = service.getUserById(id);
         model.addAttribute("user", user);
